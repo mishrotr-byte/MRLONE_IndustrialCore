@@ -1,0 +1,9 @@
+{
+  "Name": "MRLONE Industrial Core",
+  "Author": "mishrotr-byte",
+  "Version": "1.0.0",
+  "Description": "Industrial expansion: City MRLONE, factories, taxes, player shop.",
+  "UniqueID": "mishrotr-byte.MRLONE_IndustrialCore",
+  "EntryDll": "MRLONE_IndustrialCore.dll",
+  "MinimumApiVersion": "4.0.0"
+}
