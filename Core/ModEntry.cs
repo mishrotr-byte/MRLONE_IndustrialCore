@@ -14,12 +14,10 @@ public class ModEntry : Mod
     {
         Instance = this;
 
-        // События
         helper.Events.GameLoop.SaveLoaded += OnSaveLoaded;
         helper.Events.GameLoop.Saving += OnSaving;
         helper.Events.GameLoop.DayStarted += OnDayStarted;
 
-        // Debug команда для добавления прибыли
         helper.ConsoleCommands.Add("mrl_profit",
             "Добавить тестовую прибыль 10000g",
             (cmd, args) =>
@@ -47,5 +45,17 @@ public class ModEntry : Mod
 
     private void OnDayStarted(object? sender, DayStartedEventArgs e)
     {
-        // 1 число месяца — сбор налога
-        if (Game1.dayOfMonth == 1 && SaveData.TotalProfit > 
+        if (Game1.dayOfMonth == 1 && SaveData.TotalProfit > 0)
+        {
+            int hearts = 0;
+            int tax = TaxSystem.CalculateTax(SaveData.TotalProfit, hearts);
+
+            Game1.player.Money -= tax;
+
+            // Вместо HUD — безопасный лог
+            Monitor.Log($"Арлон собрал налог: {tax}g", LogLevel.Info);
+
+            SaveData.TotalProfit = 0;
+        }
+    }
+}
