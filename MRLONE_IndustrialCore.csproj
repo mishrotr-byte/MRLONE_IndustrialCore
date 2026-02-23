@@ -7,15 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="StardewModdingAPI">
-      <HintPath>lib/StardewModdingAPI.dll</HintPath>
-    </Reference>
-    <Reference Include="StardewValley">
-      <HintPath>lib/StardewValley.dll</HintPath>
-    </Reference>
-    <Reference Include="HarmonyLib">
-      <HintPath>lib/0Harmony.dll</HintPath>
-    </Reference>
+    <PackageReference Include="StardewModdingAPI" Version="4.5.1" />
+    <PackageReference Include="HarmonyLib" Version="2.3.3" />
   </ItemGroup>
 
 </Project>

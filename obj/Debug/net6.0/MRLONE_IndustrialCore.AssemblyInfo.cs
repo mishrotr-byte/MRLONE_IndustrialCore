@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MRLONE_IndustrialCore")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b00b9d2b15c8d864cf25229423b020e6edc0aaa4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4aa4079423efd1304e07749666cf0fa8be319973")]
 [assembly: System.Reflection.AssemblyProductAttribute("MRLONE_IndustrialCore")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MRLONE_IndustrialCore")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
