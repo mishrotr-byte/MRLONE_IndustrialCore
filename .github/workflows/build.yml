@@ -20,10 +20,12 @@ jobs:
         wget https://github.com/Pathoschild/SMAPI/releases/download/4.5.1/SMAPI-4.5.1-installer.zip
         unzip SMAPI-4.5.1-installer.zip -d smapi
         mkdir lib
-        cp smapi/internal/linux/StardewModdingAPI.dll lib/
-        cp smapi/internal/linux/0Harmony.dll lib/
+        cp "smapi/SMAPI 4.5.1 installer/internal/linux/SMAPI.Toolkit.dll" lib/
+        cp "smapi/SMAPI 4.5.1 installer/internal/linux/SMAPI.Toolkit.CoreInterfaces.dll" lib/
+        cp "smapi/SMAPI 4.5.1 installer/internal/linux/SMAPI.Installer.dll" lib/
+        cp "smapi/SMAPI 4.5.1 installer/internal/linux/0Harmony.dll" lib/ || true
 
-    - name: Download Stardew Valley Linux binaries
+    - name: Download StardewValley.dll
       run: |
         wget https://github.com/veywrn/StardewValleyLinux/raw/master/lib/StardewValley.dll -O lib/StardewValley.dll
 
