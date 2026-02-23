@@ -6,16 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Reference Include="SMAPI.Toolkit">
-      <HintPath>lib/SMAPI.Toolkit.dll</HintPath>
-    </Reference>
-    <Reference Include="SMAPI.Toolkit.CoreInterfaces">
-      <HintPath>lib/SMAPI.Toolkit.CoreInterfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="StardewValley">
-      <HintPath>lib/StardewValley.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>

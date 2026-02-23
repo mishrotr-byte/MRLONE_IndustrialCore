@@ -15,24 +15,4 @@ jobs:
       with:
         dotnet-version: 6.0.x
 
-    - name: Download SMAPI
-      run: |
-        wget https://github.com/Pathoschild/SMAPI/releases/download/4.5.1/SMAPI-4.5.1-installer.zip
-        unzip SMAPI-4.5.1-installer.zip -d smapi
-        mkdir lib
-        cp "smapi/SMAPI 4.5.1 installer/internal/linux/SMAPI.Toolkit.dll" lib/
-        cp "smapi/SMAPI 4.5.1 installer/internal/linux/SMAPI.Toolkit.CoreInterfaces.dll" lib/
-        cp "smapi/SMAPI 4.5.1 installer/internal/linux/SMAPI.Installer.dll" lib/
-        cp "smapi/SMAPI 4.5.1 installer/internal/linux/0Harmony.dll" lib/ || true
-
-    - name: Download StardewValley.dll
-      run: |
-        wget https://github.com/veywrn/StardewValleyLinux/raw/master/lib/StardewValley.dll -O lib/StardewValley.dll
-
-    - name: Build
-      run: dotnet build -c Release
-
-    - uses: actions/upload-artifact@v4
-      with:
-        name: MRLONE_IndustrialCore
-        path: bin/Release/net6.0/
+    - run: dotnet build -c Release
