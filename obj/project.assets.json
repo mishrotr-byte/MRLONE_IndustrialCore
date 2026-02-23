@@ -5,10 +5,7 @@
   },
   "libraries": {},
   "projectFileDependencyGroups": {
-    "net6.0": [
-      "HarmonyLib >= 2.3.3",
-      "StardewModdingAPI >= 4.5.1"
-    ]
+    "net6.0": []
   },
   "packageFolders": {
     "/home/codespace/.nuget/packages/": {}
@@ -52,16 +49,6 @@
     "frameworks": {
       "net6.0": {
         "targetAlias": "net6.0",
-        "dependencies": {
-          "HarmonyLib": {
-            "target": "Package",
-            "version": "[2.3.3, )"
-          },
-          "StardewModdingAPI": {
-            "target": "Package",
-            "version": "[4.5.1, )"
-          }
-        },
         "imports": [
           "net461",
           "net462",
@@ -91,25 +78,5 @@
         "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.100/RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1101",
-      "level": "Error",
-      "message": "Не удалось найти пакет StardewModdingAPI. Пакеты с таким идентификатором отсутствуют в следующих источниках пакетов: nuget.org",
-      "libraryId": "StardewModdingAPI",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    },
-    {
-      "code": "NU1101",
-      "level": "Error",
-      "message": "Не удалось найти пакет HarmonyLib. Пакеты с таким идентификатором отсутствуют в следующих источниках пакетов: nuget.org",
-      "libraryId": "HarmonyLib",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  }
 }

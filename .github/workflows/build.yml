@@ -9,22 +9,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+    - uses: actions/checkout@v4
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
+    - uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 6.0.x
 
-    - name: Restore
-      run: dotnet restore
+    - name: Download SMAPI
+      run: |
+        wget https://github.com/Pathoschild/SMAPI/releases/download/4.5.1/SMAPI-4.5.1-installer.zip
+        unzip SMAPI-4.5.1-installer.zip -d smapi
+        mkdir lib
+        cp smapi/internal/linux/StardewModdingAPI.dll lib/
+        cp smapi/internal/linux/0Harmony.dll lib/
+
+    - name: Download Stardew Valley Linux binaries
+      run: |
+        wget https://github.com/veywrn/StardewValleyLinux/raw/master/lib/StardewValley.dll -O lib/StardewValley.dll
 
     - name: Build
       run: dotnet build -c Release
 
-    - name: Upload artifact
-      uses: actions/upload-artifact@v4
+    - uses: actions/upload-artifact@v4
       with:
         name: MRLONE_IndustrialCore
         path: bin/Release/net6.0/
