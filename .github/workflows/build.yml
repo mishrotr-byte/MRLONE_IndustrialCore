@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout
+    - name: Checkout repo
       uses: actions/checkout@v4
 
     - name: Setup .NET
@@ -17,13 +17,27 @@ jobs:
       with:
         dotnet-version: 6.0.x
 
-    - name: Restore
-      run: dotnet restore
+    - name: Download SMAPI
+      run: |
+        wget https://github.com/Pathoschild/SMAPI/releases/latest/download/SMAPI-Installer.zip
+        unzip SMAPI-Installer.zip -d smapi
+        mkdir lib
+        cp smapi/internal/Windows/StardewModdingAPI.dll lib/
+        cp smapi/internal/Windows/0Harmony.dll lib/
 
-    - name: Build
+    - name: Create dummy StardewValley.dll
+      run: |
+        mkdir -p lib
+        echo "namespace StardewValley { public class Game1 {} }" > Dummy.cs
+        dotnet new classlib -n DummyProject
+        mv Dummy.cs DummyProject/Class1.cs
+        dotnet build DummyProject -c Release
+        cp DummyProject/bin/Release/net6.0/DummyProject.dll lib/StardewValley.dll
+
+    - name: Build mod
       run: dotnet build -c Release
 
-    - name: Upload DLL Artifact
+    - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
         name: MRLONE_IndustrialCore
